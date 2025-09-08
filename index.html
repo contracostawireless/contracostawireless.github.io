@@ -1,271 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contra Costa Wireless — Prepaid Plans, Repairs & Upgrades</title>
-  <meta name="description" content="Contra Costa Wireless: prepaid wireless plans, phone repairs & upgrades, accessories, and bill pay. Book an appointment online or call (925) 289-8278." />
-  <meta property="og:title" content="Contra Costa Wireless — Your Local Wireless Experts" />
-  <meta property="og:description" content="Prepaid plans only • Repairs & upgrades • Fast data • Accessories • Bill pay" />
-  <meta property="og:type" content="website" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contra Costa Wireless</title>
+  <meta name="description" content="Contra Costa Wireless – Your local wireless experts. Activations, upgrades, repairs, bill pay, and accessories all in one place." />
+  <meta property="og:title" content="Contra Costa Wireless" />
+  <meta property="og:description" content="Affordable prepaid wireless plans, fast data speeds, repairs, and upgrades. Visit us today!" />
   <meta property="og:image" content="images/hero.jpeg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css" />
   <style>
-    :root{
-      --teal:#00c1a2;
-      --dark:#121212;
-      --mid:#2a2a2a;
-      --muted:#6c6c6c;
-      --bg:#ffffff;
-      --shadow:0 8px 30px rgba(0,0,0,.08);
-      --radius:16px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--mid);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    a{color:var(--teal);text-decoration:none}
-    img{max-width:100%;height:auto}
-
-    /* Header */
-    .wrap{max-width:1100px;margin:auto;padding:0 20px}
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:50}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-    .brand{display:flex;gap:10px;align-items:center}
-    .brand img{height:42px;width:auto}
-    .brand span{font-weight:700;color:var(--dark)}
-    .menu{display:flex;gap:22px;align-items:center}
-    .cta{display:inline-block;background:var(--teal);color:#fff;padding:10px 16px;border-radius:999px;font-weight:700}
-    .ghost{display:inline-block;border:2px solid var(--teal);color:var(--teal);padding:8px 14px;border-radius:999px;font-weight:700}
-
-    /* Hero */
-    .hero{position:relative;min-height:72vh;display:grid;place-items:center;background:url('images/hero.jpg') center/cover no-repeat}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.35))}
-    .hero .box{position:relative;z-index:1;color:#fff;text-align:center;padding:16px}
-    .hero h1{font-size:clamp(28px,5vw,48px);margin:0 0 10px;font-weight:800}
-    .hero p{opacity:.95;margin:0 auto 18px;max-width:720px}
-    .hero .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .hero .cta{background:#10d6b6}
-    .hero .ghost{border-color:#fff;color:#fff}
-
-    /* Sections */
-    section{padding:70px 0}
-    h2{font-size:clamp(24px,3.6vw,36px);margin:0 0 14px;color:var(--dark)}
-    .lead{color:var(--muted);max-width:760px}
-
-    /* Services grid */
-    .grid{display:grid;gap:18px}
-    @media(min-width:760px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
-    .card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    .card h3{margin:8px 0 8px;color:var(--dark);font-size:20px}
-    .icon{font-size:28px}
-
-    /* Feature band */
-    .band{background:#f7f9fa;border-radius:var(--radius);padding:24px;display:grid;gap:14px}
-    @media(min-width:760px){ .band{grid-template-columns:repeat(3,1fr)} }
-    .pill{display:inline-block;background:rgba(0,193,162,.12);color:var(--teal);font-weight:700;border-radius:999px;padding:6px 10px;font-size:13px}
-
-    /* Careers */
-    .careers .card{display:grid;gap:10px}
-    .tag{display:inline-block;background:#eef7f6;color:#0a8d78;font-weight:700;border-radius:6px;padding:4px 8px;font-size:12px}
-
-    /* Contact */
-    .contact .info{display:grid;gap:16px}
-    @media(min-width:760px){ .contact .info{grid-template-columns:2fr 1fr} }
-    .contact .item{display:flex;gap:12px;align-items:flex-start}
-    .contact .item b{color:var(--dark)}
-
-    /* Footer */
-    footer{background:#0f1113;color:#cdd3d6;padding:38px 0}
-    footer a{color:#c6fff2}
-    .foot{display:grid;gap:14px}
-    @media(min-width:760px){ .foot{grid-template-columns:1fr auto} }
-    .small{font-size:13px;color:#98a2a7}
+    header {
+      background: url("images/hero.jpeg") center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+    }
+    nav {
+      background: #111;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .service {
+      flex: 1 1 250px;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+    .service h3 {
+      margin-bottom: 10px;
+    }
+    .contact {
+      background: #f2f2f2;
+      padding: 40px;
+      border-radius: 8px;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <!-- Header -->
-  <header>
-    <div class="wrap nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="Contra Costa Wireless logo">
-        <span>Contra Costa Wireless</span>
-      </div>
-      <nav class="menu">
-        <a href="#services">Services</a>
-        <a href="#careers">Careers</a>
-        <a href="#contact">Contact</a>
-        <a class="ghost" href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Book Appointment</a>
-        <a class="cta" href="tel:+19252898278">Call (925) 289-8278</a>
-      </nav>
-    </div>
+  <header id="home">
+    <h1>Contra Costa Wireless</h1>
+    <p>Your Local Wireless Experts – Prepaid Plans, Repairs, and More</p>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="box wrap">
-      <span class="pill">Your Local Wireless Experts</span>
-      <h1>Stay Connected with Contra Costa Wireless</h1>
-      <p class="lead" style="color:#e9fbf7">
-        Prepaid plans only • Fast data • Repairs & upgrades • Accessories • Multi-carrier bill pay — all in one place.
-      </p>
-      <div class="actions">
-        <a class="cta" href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Book Appointments</a>
-        <a class="ghost" href="#services">See Services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
   <section id="services">
-    <div class="wrap">
-      <h2>Our Services</h2>
-      <p class="lead">Simple, friendly service focused on value and reliability.</p>
-
-      <div class="grid cols-3" style="margin-top:18px">
-        <div class="card">
-          <div class="icon">📱</div>
-          <h3>Prepaid Wireless Plans</h3>
-          <p>Affordable monthly options starting at <b>$40</b>. No credit checks or contracts.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">⚡</div>
-          <h3>Fast Data Speeds</h3>
-          <p>Stay connected with LTE and 5G-ready coverage.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🔧</div>
-          <h3>Repairs &amp; Upgrades</h3>
-          <p>Screens, batteries, and device tune-ups. Get your phone running like new.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧩</div>
-          <h3>Accessories</h3>
-          <p>Cases, chargers, cables, headphones, and more.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">💳</div>
-          <h3>Bill Pay (Multiple Carriers)</h3>
-          <p>Pay your wireless bill in store. Quick, convenient, and secure.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🌐</div>
-          <h3>Home Internet Plans</h3>
-          <p>Ask about simple wireless internet options for home.</p>
-        </div>
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service">
+        📱
+        <h3>Prepaid Wireless Plans</h3>
+        <p>Affordable monthly options starting at $40.</p>
       </div>
-
-      <div class="band" style="margin-top:22px">
-        <div>
-          <div class="icon">✅</div>
-          <h3>Transparent Pricing</h3>
-          <p class="small">No contracts. No surprise fees.</p>
-        </div>
-        <div>
-          <div class="icon">🧑‍🤝‍🧑</div>
-          <h3>Local Support</h3>
-          <p class="small">Friendly help from people in your community.</p>
-        </div>
-        <div>
-          <div class="icon">🕒</div>
-          <h3>Quick Service</h3>
-          <p class="small">Most repairs and activations the same day.</p>
-        </div>
+      <div class="service">
+        💡
+        <h3>Fast Data Speeds</h3>
+        <p>Stay connected with LTE & 5G-ready coverage.</p>
+      </div>
+      <div class="service">
+        🔧
+        <h3>Repairs & Upgrades</h3>
+        <p>Screens, batteries, and accessories available.</p>
+      </div>
+      <div class="service">
+        💳
+        <h3>Bill Pay</h3>
+        <p>Pay multiple carriers quickly and securely in store.</p>
+      </div>
+      <div class="service">
+        🎧
+        <h3>Accessories</h3>
+        <p>Cases, chargers, headphones, and more.</p>
+      </div>
+      <div class="service">
+        🌐
+        <h3>Home Internet Plans</h3>
+        <p>Reliable and affordable options for your home.</p>
       </div>
     </div>
   </section>
 
-  <!-- Careers -->
-  <section id="careers" class="careers">
-    <div class="wrap">
-      <h2>Careers</h2>
-      <p class="lead">Join our team and help neighbors stay connected.</p>
-
-      <div class="grid cols-2" style="margin-top:18px">
-        <div class="card">
-          <span class="tag">Now Hiring</span>
-          <h3>Wireless Sales Associate (Flexible Hours)</h3>
-          <ul>
-            <li>Help customers choose prepaid plans and devices</li>
-            <li>Assist with activations, bill pay, and accessories</li>
-            <li>Part-time or full-time • Weekend availability a plus</li>
-          </ul>
-          <p><b>How to apply:</b> Email your resume to
-            <a href="mailto:info@contracostawireless.com">info@contracostawireless.com</a> or use the “Book Appointments” link to set up a quick interview.</p>
-          <div>
-            <a class="cta" href="mailto:info@contracostawireless.com?subject=Application%20-%20Wireless%20Sales%20Associate">Email Resume</a>
-            <a class="ghost" href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Schedule Interview</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Why Work With Us</h3>
-          <p>Small team, big impact. We value friendly service, learning on the job, and work-life balance.</p>
-          <ul>
-            <li>Hourly + commission opportunities</li>
-            <li>Hands-on training</li>
-            <li>Employee discounts</li>
-          </ul>
-        </div>
-      </div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <p><strong>📍 Address:</strong> Contra Costa County, CA</p>
+      <p><strong>📞 Phone:</strong> (925) 289-8278</p>
+      <p><strong>🕒 Hours:</strong> Flexible hours – call to confirm availability</p>
+      <p><a href="https://form.jotform.com/252469328813060" target="_blank">📅 Book an Appointment Online</a></p>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <h2>Contact Us</h2>
-      <p class="lead">Questions, upgrades, or ready to switch? We’re here to help.</p>
-
-      <div class="info" style="margin-top:18px">
-        <div class="card">
-          <div class="item"><div class="icon">📞</div><div><b>Call</b><br><a href="tel:+19252898278">(925) 289-8278</a></div></div>
-          <div class="item"><div class="icon">✉️</div><div><b>Email</b><br><a href="mailto:info@contracostawireless.com">info@contracostawireless.com</a></div></div>
-          <div class="item"><div class="icon">📍</div><div><b>Location</b><br>Contra Costa County, CA</div></div>
-          <div class="item"><div class="icon">🗓️</div><div><b>Appointments</b><br><a href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Book online here</a></div></div>
-        </div>
-
-        <div class="card">
-          <h3 style="margin-top:0">Quick Links</h3>
-          <p class="small"><a href="#services">Services</a> • <a href="#careers">Careers</a> • <a href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Book Appointment</a></p>
-          <p class="small">Tip: Save our number <a href="tel:+19252898278">(925) 289-8278</a> to your phone.</p>
-        </div>
-      </div>
-
-      <!-- Optional embedded Jotform (uncomment to embed instead of linking) -->
-      <!--
-      <div class="card" style="margin-top:18px">
-        <iframe title="Appointments" style="width:100%;height:820px;border:0;border-radius:12px"
-          src="https://form.jotform.com/252469328813060"></iframe>
-      </div>
-      -->
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <div class="wrap foot">
-      <div>
-        <div class="brand" style="gap:8px">
-          <img src="images/logo.png" alt="CCW logo" style="height:30px">
-          <span style="color:#fff">Contra Costa Wireless</span>
-        </div>
-        <div class="small" style="margin-top:8px">
-          © 2025 Contra Costa Wireless. All rights reserved.
-        </div>
-      </div>
-      <div class="small">
-        <a href="mailto:info@contracostawireless.com">info@contracostawireless.com</a><br>
-        <a href="tel:+19252898278">(925) 289-8278</a>
-      </div>
-    </div>
+    <p>© 2025 Contra Costa Wireless. All Rights Reserved.</p>
   </footer>
-
 </body>
 </html>
