@@ -19,12 +19,24 @@
 
   /* HERO */
   .hero{
+    position:relative;
     background:url("hero.jpeg") center/cover no-repeat;
     color:#fff;
-    padding:120px 20px;
     text-align:center;
     border-radius:var(--radius);
     margin-bottom:40px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,.55); /* dark overlay */
+  }
+  .hero-content{
+    position:relative;
+    padding:120px 20px;
+    z-index:1;
   }
   .hero h1{font-size:38px;margin-bottom:10px}
   .hero p{font-size:18px;margin-bottom:20px}
@@ -124,16 +136,38 @@
     margin-top:40px;
   }
   footer p{margin:6px 0}
+  .socials{
+    margin:14px 0;
+    display:flex;
+    justify-content:center;
+    gap:18px;
+  }
+  .socials a{
+    color:#fff;
+    font-size:20px;
+    text-decoration:none;
+    transition:.3s;
+  }
+  .socials a:hover{color:var(--teal)}
+  .disclaimer{
+    font-size:11px;
+    color:#8899a6;
+    margin-top:12px;
+  }
 </style>
+<!-- fontawesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <main class="wrap">
 
     <!-- HERO -->
     <section class="hero">
-      <h1>Welcome to Contra Costa Wireless</h1>
-      <p>Your local Total Wireless Authorized Dealer</p>
-      <a href="#deals" class="btn primary">Shop Deals</a>
+      <div class="hero-content">
+        <h1>Welcome to Contra Costa Wireless</h1>
+        <p>Your local Total Wireless Authorized Dealer</p>
+        <a href="#deals" class="btn primary">Shop Deals</a>
+      </div>
     </section>
 
     <!-- DEALS -->
@@ -246,7 +280,14 @@
   <footer>
     <p><strong>Contra Costa Wireless</strong></p>
     <p>Your Local Total Wireless Dealer</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
     <p>&copy; 2025 Contra Costa Wireless. All rights reserved.</p>
+    <p class="disclaimer">Disclaimer: Contra Costa Wireless is an independent authorized retailer. Offers, pricing, and promotions are subject to change without notice. See store for details.</p>
   </footer>
 </body>
 </html>
