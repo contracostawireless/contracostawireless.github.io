@@ -39,10 +39,8 @@
       align-items:center;
       justify-content:space-between;
     }
-    .nav-logo {
-      font-weight:bold;
-      font-size:1.2rem;
-      color:var(--teal);
+    .nav-logo img {
+      height:40px;
     }
     .nav-links {
       display:flex;
@@ -53,9 +51,7 @@
       color:#333;
       transition:.2s;
     }
-    .nav-links a:hover {
-      color:var(--teal);
-    }
+    .nav-links a:hover { color:var(--teal); }
 
     /* Hero Section */
     .hero {
@@ -111,20 +107,11 @@
       padding: 0 20px;
       text-align: center;
     }
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-    .section p {
-      color: #666;
-      margin-bottom: 28px;
-    }
+    .section h2 { font-size: 1.8rem; margin-bottom: 10px; }
+    .section p { color: #666; margin-bottom: 28px; }
 
-    /* Deals Cards */
-    .cards {
-      display: grid;
-      gap: 18px;
-    }
+    /* Cards */
+    .cards { display:grid; gap:18px; }
     @media(min-width:700px){.cards{grid-template-columns:repeat(2,1fr);}}
     @media(min-width:1000px){.cards{grid-template-columns:repeat(3,1fr);}}
 
@@ -166,6 +153,10 @@
       padding: 30px 20px 15px;
       text-align:center;
     }
+    .footer-logo img {
+      height: 80px;
+      margin-bottom: 12px;
+    }
     .social-icons {
       margin: 12px 0 20px;
     }
@@ -189,7 +180,9 @@
   <!-- Navbar -->
   <nav>
     <div class="nav-container">
-      <div class="nav-logo">Contra Costa Wireless</div>
+      <div class="nav-logo">
+        <img src="images/Logo.png" alt="Contra Costa Wireless Logo">
+      </div>
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#deals">Deals</a>
@@ -263,13 +256,16 @@
     <h2>Contact Us</h2>
     <p>We’d love to hear from you! Visit our store or reach out below.</p>
     <p><strong>📍 Address:</strong> 1234 Main Street, Concord, CA 94520</p>
-    <p><strong>📞 Phone:</strong> (925) 289-8278</p>
+    <p><strong>📞 Phone:</strong> (925) 555-0123</p>
     <p><strong>✉️ Email:</strong> info@contracostawireless.com</p>
     <a href="https://form.jotform.com/252469328813060" target="_blank" class="btn">Book Appointment</a>
   </section>
 
   <!-- Footer -->
   <footer>
+    <div class="footer-logo">
+      <img src="images/Coco.png" alt="Coco Mascot">
+    </div>
     <div class="social-icons">
       <a href="#"><i class="fab fa-facebook"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
