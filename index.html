@@ -1,173 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contra Costa Wireless</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     :root {
       --teal:#0e8f83;
-      --dark:#0a0a0a;
-      --light:#f8fafb;
-      --gray:#777;
+      --dark:#111827;
+      --light:#f5f9fa;
     }
+
     body {
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:var(--light);
-      color:var(--dark);
-      line-height:1.6;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: #222;
+      line-height: 1.5;
     }
+
     a {text-decoration:none; color:inherit;}
 
-    /* HERO */
+    /* Navbar */
+    nav {
+      background:#fff;
+      border-bottom:1px solid #ddd;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+    .nav-container {
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .nav-logo {
+      font-weight:bold;
+      font-size:1.2rem;
+      color:var(--teal);
+    }
+    .nav-links {
+      display:flex;
+      gap:18px;
+    }
+    .nav-links a {
+      font-weight:600;
+      color:#333;
+      transition:.2s;
+    }
+    .nav-links a:hover {
+      color:var(--teal);
+    }
+
+    /* Hero Section */
     .hero {
-      position:relative;
-      border-radius:0 0 18px 18px;
-      overflow:hidden;
-      height:clamp(360px, 56vh, 520px);
-      margin:0 0 30px;
-      isolation:isolate;
+      background: url("images/hero.jpg") no-repeat center center/cover;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-img {
-      position:absolute; inset:0;
+    .hero::after {
+      content: "";
+      position: absolute;
+      top:0; left:0;
       width:100%; height:100%;
-      object-fit:cover;
-      object-position:center;
-    }
-    .hero-overlay {
-      position:absolute; inset:0;
-      background:
-        radial-gradient(90% 60% at 50% 0%, rgba(0,0,0,.35), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
-      pointer-events:none;
+      background: rgba(0,0,0,0.45);
     }
     .hero-content {
-      position:relative; z-index:1;
-      height:100%;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      padding:0 20px;
-      color:#fff;
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
     }
     .hero-content h1 {
-      font-size:clamp(28px,6vw,44px);
-      line-height:1.1;
-      margin:0 0 10px;
-      text-shadow:0 2px 14px rgba(0,0,0,.35);
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
     }
     .hero-content p {
-      margin:0 0 18px;
-      font-size:clamp(15px,2.6vw,18px);
-      color:#eef6f5;
-      text-shadow:0 1px 10px rgba(0,0,0,.25);
+      font-size: clamp(16px, 2.6vw, 20px);
+      margin-bottom: 22px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
     .btn {
+      background: var(--teal);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: bold;
       display:inline-block;
-      font-weight:700;
-      padding:12px 24px;
-      border-radius:999px;
-      background:var(--teal);
-      color:#fff;
-      box-shadow:0 8px 20px rgba(14,143,131,.28);
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
     }
+    .btn:hover { background:#0c7a6f; }
 
-    /* DEALS */
+    /* Section base */
     .section {
-      max-width:960px;
-      margin:0 auto 40px;
-      padding:0 20px;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+      text-align: center;
     }
     .section h2 {
-      font-size:24px;
-      margin:0 0 10px;
-      text-align:center;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
     .section p {
-      color:var(--gray);
-      margin:0 0 20px;
-      text-align:center;
-    }
-    .card-grid {
-      display:grid;
-      gap:16px;
-    }
-    @media(min-width:640px){
-      .card-grid{grid-template-columns:repeat(2,1fr);}
-    }
-    .card {
-      background:#111;
-      color:#fff;
-      border-radius:12px;
-      padding:20px;
-      position:relative;
-    }
-    .card h3 {margin:0 0 8px;}
-    .tag {
-      position:absolute; top:16px; right:16px;
-      background:#333;
-      padding:3px 8px;
-      border-radius:12px;
-      font-size:12px;
-    }
-    .card a {
-      display:inline-block;
-      margin-top:10px;
-      background:#fff;
-      color:#111;
-      padding:6px 14px;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:600;
+      color: #666;
+      margin-bottom: 28px;
     }
 
-    /* FOOTER */
+    /* Deals Cards */
+    .cards {
+      display: grid;
+      gap: 18px;
+    }
+    @media(min-width:700px){.cards{grid-template-columns:repeat(2,1fr);}}
+    @media(min-width:1000px){.cards{grid-template-columns:repeat(3,1fr);}}
+
+    .card {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 12px;
+      padding: 22px;
+      text-align: left;
+      position: relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .card h3 {margin:0 0 10px;}
+    .card p {font-size:.95rem; margin-bottom:20px; flex-grow:1;}
+    .card .tag {
+      background: #333;
+      font-size:.75rem;
+      padding:3px 8px;
+      border-radius:12px;
+      position:absolute;
+      top:16px; right:16px;
+    }
+    .card a {
+      background:#fff;
+      color:var(--dark);
+      padding:8px 16px;
+      border-radius:20px;
+      font-size:.9rem;
+      font-weight:bold;
+      align-self:flex-start;
+    }
+
+    /* Footer */
     footer {
-      background:#111;
-      color:#aaa;
-      padding:30px 20px 10px;
+      background: var(--dark);
+      color: #ccc;
+      padding: 30px 20px 15px;
       text-align:center;
     }
-    .socials {
-      margin:10px 0 20px;
+    .social-icons {
+      margin: 12px 0 20px;
     }
-    .socials a {
-      display:inline-block;
-      margin:0 10px;
-      font-size:20px;
+    .social-icons a {
       color:#fff;
+      margin:0 10px;
+      font-size:1.2rem;
       transition:color .2s;
     }
-    .socials a:hover {color:var(--teal);}
+    .social-icons a:hover {color:var(--teal);}
     .disclaimer {
-      font-size:12px;
+      font-size:.7rem;
+      margin-top:10px;
+      color:#888;
       line-height:1.4;
-      color:#666;
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="hero.jpeg" alt="Contra Costa Wireless" class="hero-img">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div>
-        <h1>Welcome to Contra Costa Wireless</h1>
-        <p>Your local Total Wireless Authorized Dealer</p>
-        <a href="#deals" class="btn">Shop Deals</a>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">Contra Costa Wireless</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#deals">Deals</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to Contra Costa Wireless</h1>
+      <p>Your local Total Wireless Authorized Dealer</p>
+      <a href="#deals" class="btn">Shop Deals</a>
     </div>
   </section>
 
-  <!-- DEALS -->
-  <section id="deals" class="section">
+  <!-- Deals Section -->
+  <section class="section" id="deals">
     <h2>Amazing Deals & Promotions</h2>
     <p>Switch today and start saving with these offers</p>
-    <div class="card-grid">
+    <div class="cards">
       <div class="card">
         <h3>Free Phones</h3>
         <span class="tag">FREE</span>
@@ -186,12 +231,12 @@
         <p>Reliable nationwide coverage powered by Verizon’s network.</p>
         <a href="#">Learn More</a>
       </div>
-      <div class="card" style="background:#6f42c1;">
+      <div class="card">
         <h3>Bundle Savings</h3>
         <p>Save when you bundle wireless + home internet.</p>
         <a href="#">Learn More</a>
       </div>
-      <div class="card" style="background:#0e8f83;">
+      <div class="card">
         <h3>Bring Your Phone</h3>
         <span class="tag">50% OFF</span>
         <p>Keep your current phone and save on your monthly bill.</p>
@@ -200,16 +245,41 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <h2>Store Services</h2>
+    <p>Complete wireless solutions and expert support</p>
+    <div class="cards">
+      <div class="card"><h3>Bill Pay</h3><p>Quick and easy payments for all major carriers.</p></div>
+      <div class="card"><h3>Phone Activations</h3><p>We’ll get your new phone activated and ready to use.</p></div>
+      <div class="card"><h3>Phone Repairs</h3><p>Professional repair services for most phone models.</p></div>
+      <div class="card"><h3>Phone Upgrades</h3><p>Trade-in help and upgrade deals done right.</p></div>
+      <div class="card"><h3>Tech Support</h3><p>Setup, troubleshooting, and friendly advice.</p></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Visit our store or reach out below.</p>
+    <p><strong>📍 Address:</strong> 1234 Main Street, Concord, CA 94520</p>
+    <p><strong>📞 Phone:</strong> (925) 555-0123</p>
+    <p><strong>✉️ Email:</strong> info@contracostawireless.com</p>
+    <a href="https://form.jotform.com/252469328813060" target="_blank" class="btn">Book Appointment</a>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <div class="socials">
+    <div class="social-icons">
       <a href="#"><i class="fab fa-facebook"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
       <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
     </div>
     <p class="disclaimer">
-      Contra Costa Wireless is an authorized dealer for Total Wireless by Verizon. 
+      © 2025 Contra Costa Wireless. All rights reserved. <br>
+      Contra Costa Wireless is an independent authorized dealer for Total Wireless by Verizon. <br>
       Promotions, offers, and availability may vary. Trademarks and logos are property of their respective owners.
     </p>
   </footer>
