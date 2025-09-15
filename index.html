@@ -6,218 +6,131 @@
   <title>Contra Costa Wireless • Total Wireless Authorized Dealer</title>
   <meta name="description" content="Switch to Total Wireless with Contra Costa Wireless — simple, reliable prepaid on Verizon's network. Free phones when you switch, bundle savings, BYOD, home internet, repairs and accessories." />
   <meta name="theme-color" content="#0e8f83" />
+
   <style>
     :root{
       --teal:#0e8f83; --teal-2:#16a394;
       --ink:#15232b; --muted:#6b8a99;
-      --bg:#f4f7f8; --card:#ffffff; --dark:#0e1a21;
-      --ring:0 0 0 .2rem rgba(14,143,131,.25);
-      --radius:18px;
+      --bg:#f4f7f8; --card:#ffffff;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:16px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,Roboto,Arial,sans-serif}
 
     /* Header */
-    header.top{position:sticky;top:0;z-index:30;background:#fffefee6;backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid #e7eef2}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
-    .brand{display:flex;align-items:center;gap:10px}
+    header{position:sticky;top:0;z-index:30;background:#fffefee6;backdrop-filter:blur(8px);border-bottom:1px solid #e7eef2}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
     .brand img{height:40px;width:auto}
-    .nav a.link{font-weight:700;color:#214452}
-    .nav a.btn{background:var(--teal);color:#fff;padding:10px 14px;border-radius:999px;font-weight:800}
-    .nav a.btn:hover{background:#0c7e73}
+    nav a{margin:0 10px;font-weight:600;color:#214452;text-decoration:none}
+    nav .btn{background:var(--teal);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700}
+    nav .btn:hover{background:#0c7e73}
 
     /* Hero */
-    .hero{
-      margin:16px auto;border-radius:22px;overflow:hidden;position:relative;
-      min-height:58svh;display:grid;place-items:center;text-align:center;color:#fff;
+    .hero{margin:16px auto;max-width:1100px;border-radius:20px;overflow:hidden;position:relative;
+      min-height:55svh;display:grid;place-items:center;text-align:center;color:#fff;
       background-image:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.25)), url("/images/hero.jpg");
-      background-size:cover;background-position:center;
-    }
-    .hero h1{font-size:clamp(28px,6vw,44px);margin:0 0 6px}
-    .hero p{margin:0 0 14px;color:#eaf7f5}
+      background-size:cover;background-position:center;}
+    .hero h1{font-size:clamp(28px,6vw,44px);margin:0 0 10px}
+    .hero p{margin:0 0 18px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-    .cta{display:inline-block;background:#fff;color:var(--teal);font-weight:800;padding:12px 18px;border-radius:999px}
-    .cta--ghost{background:transparent;border:2px solid #fff;color:#fff}
-    .hero .coco{
-      position:absolute;right:14px;bottom:14px;
-      width:min(22vw,110px);opacity:.95;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35));
-    }
+    .cta{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:700}
+    .cta.primary{background:#fff;color:var(--teal)}
+    .cta.outline{border:2px solid #fff;color:#fff;background:transparent}
 
-    /* Sections */
-    section{padding:24px 0}
-    h2.section-title{font-size:26px;margin:0 0 8px}
-    p.section-sub{margin:0 0 14px;color:var(--muted)}
+    /* Section */
+    section{padding:40px 16px;max-width:1100px;margin:auto}
+    h2{margin:0 0 8px;font-size:26px}
+    p.section-sub{color:var(--muted);margin:0 0 20px}
 
     /* Slider */
-    .slider{
-      position:relative;background:#fff;border:1px solid #e6ebef;border-radius:22px;padding:14px;overflow:hidden;
-    }
-    .slides{
-      display:flex;gap:14px;scroll-behavior:smooth;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;
-    }
-    .slides::-webkit-scrollbar{height:8px}
-    .slides::-webkit-scrollbar-thumb{background:#cfe3de;border-radius:999px}
-    .slide{
-      flex:0 0 86%;max-width:86%;
-      background:linear-gradient(135deg,#0f1e27,#172b36);color:#e7f3f0;
-      border-radius:20px;padding:18px;border:1px solid #0e2932;scroll-snap-align:start;
-    }
-    .slide h3{margin:0 0 6px;color:#fff;font-size:20px}
-    .slide p{margin:0 0 10px;color:#cfe0e6}
-    .pill{display:inline-block;border:1px solid #ffffff3a;background:#ffffff22;color:#fff;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800}
-    .slide .learn{display:inline-block;margin-top:6px;background:#ffffff1a;border:1px solid #ffffff3d;color:#fff;padding:10px 14px;border-radius:999px;font-weight:700}
+    .slider{position:relative;background:#fff;border-radius:20px;padding:14px;border:1px solid #e6ebef;overflow:hidden}
+    .slides{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:8px}
+    .slide{flex:0 0 86%;max-width:86%;border-radius:18px;padding:18px;scroll-snap-align:start;
+      background:linear-gradient(135deg,#0f1e27,#172b36);color:#fff}
+    .slide h3{margin:6px 0;font-size:20px}
+    .pill{display:inline-block;background:#ffffff22;border:1px solid #fff3;padding:4px 10px;font-size:12px;border-radius:999px}
+    .learn{display:inline-block;margin-top:8px;padding:10px 14px;border:1px solid #fff3;border-radius:999px;color:#fff}
 
-    /* slider controls */
-    .arrow{
-      position:absolute;top:50%;transform:translateY(-50%);
-      width:42px;height:42px;border-radius:999px;display:grid;place-items:center;
-      background:#0e2330;color:#fff;border:1px solid #214452;cursor:pointer;
-    }
-    .arrow[disabled]{opacity:.4;pointer-events:none}
-    .arrow.left{left:10px}
-    .arrow.right{right:10px}
-    .dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
-    .dot{width:8px;height:8px;border-radius:999px;background:#c7d9d4}
-    .dot.active{background:var(--teal)}
-
-    /* Services list */
-    .services .item{
-      background:#fff;border:1px solid #e6ebef;border-radius:16px;padding:14px;margin-bottom:10px;
-      display:flex;gap:12px;align-items:flex-start;
-    }
-    .ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#f3f7f9;border:1px solid #e4eef2;font-size:20px}
+    /* Services */
+    .services .item{background:#fff;border:1px solid #e6ebef;border-radius:14px;padding:14px;margin-bottom:10px;display:flex;gap:12px}
+    .ico{width:36px;height:36px;background:#f4f7f8;border:1px solid #e4eef2;border-radius:10px;display:grid;place-items:center}
 
     /* Visit */
-    .visit .card{background:#fff;border:1px solid #e6ebef;border-radius:18px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-    .btn{appearance:none;border:none;border-radius:999px;padding:12px 16px;font-weight:800;cursor:pointer}
+    .visit .card{background:#fff;border:1px solid #e6ebef;border-radius:16px;padding:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .visit .mascot{max-width:120px}
+    .btn{padding:12px 16px;border-radius:999px;font-weight:700;text-decoration:none}
     .btn.primary{background:var(--teal);color:#fff}
-    .btn.outline{background:#fff;border:2px solid var(--teal);color:var(--teal)}
-    .btn + .btn{margin-left:10px}
-    .visit .mascot{width:130px;max-width:35%}
+    .btn.outline{border:2px solid var(--teal);color:var(--teal);background:#fff}
 
     /* Footer */
-    footer{background:#0c161c;color:#d6ece7;padding:26px 16px;margin-top:10px;border-top:1px solid #0f2931}
-    .foot{max-width:1100px;margin:0 auto;display:grid;gap:14px}
-    .socials{display:flex;gap:16px;align-items:center}
-    .socials a{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:#11262d;border:1px solid #1b3942}
-    .tiny{font-size:12px;color:#a9c7c0}
-
-    @media (min-width:900px){
-      .slide{flex-basis:32%;max-width:32%}
-    }
+    footer{background:#0c161c;color:#d6ece7;padding:30px 16px}
+    .foot{max-width:1100px;margin:auto}
+    .socials{display:flex;gap:14px;margin:12px 0}
+    .socials a{display:grid;place-items:center;width:40px;height:40px;background:#11262d;border-radius:10px}
+    .tiny{font-size:13px;color:#a9c7c0;margin-top:8px}
   </style>
 </head>
 <body>
 
-  <!-- Sticky header (logo only) -->
-  <header class="top">
-    <div class="wrap nav">
-      <div class="brand">
-        <img src="/images/Logo.png" alt="Contra Costa Wireless logo" />
-      </div>
-      <nav style="display:flex;gap:14px;align-items:center;">
-        <a class="link" href="#deals">Deals</a>
-        <a class="link" href="#services">Services</a>
-        <a class="link" href="#visit">Contact</a>
-        <a class="btn" href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Book Appointment</a>
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <div class="brand"><img src="/images/Logo.png" alt="Logo"></div>
+      <nav>
+        <a href="#deals">Deals</a>
+        <a href="#services">Services</a>
+        <a href="#visit">Contact</a>
+        <a class="btn" href="https://form.jotform.com/252469328813060" target="_blank">Book Appointment</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <div class="wrap">
-    <section class="hero" aria-label="Hero">
-      <div style="z-index:1">
-        <h1>Welcome to Contra Costa Wireless</h1>
-        <p>Your local Total Wireless Authorized Dealer</p>
-        <div class="cta-row">
-          <a class="cta" href="#deals">Shop Deals</a>
-          <a class="cta cta--ghost" href="tel:+19252898278">Call (925) 289-8278</a>
-        </div>
+  <section class="hero">
+    <div>
+      <h1>Welcome to Contra Costa Wireless</h1>
+      <p>Your local Total Wireless Authorized Dealer</p>
+      <div class="cta-row">
+        <a class="cta primary" href="#deals">Shop Deals</a>
+        <a class="cta outline" href="tel:+19252898278">Call (925) 289-8278</a>
       </div>
-      <img class="coco" src="/images/Coco.png" alt="Coco, our friendly mascot" />
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- Promotions Slider -->
-  <section id="deals" class="wrap">
-    <h2 class="section-title">Amazing Deals & Promotions</h2>
+  <!-- Deals -->
+  <section id="deals">
+    <h2>Amazing Deals & Promotions</h2>
     <p class="section-sub">Switch today and start saving with these offers</p>
-
-    <div class="slider" id="promoSlider" aria-label="Deals slider">
-      <button class="arrow left" aria-label="Previous" id="prevBtn">‹</button>
-      <button class="arrow right" aria-label="Next" id="nextBtn">›</button>
-
+    <div class="slider" id="promoSlider">
       <div class="slides" id="slides">
-        <article class="slide">
-          <div class="pill">FREE</div>
-          <h3>Get iPhone 13 with 5G — On Us</h3>
-          <p>When you switch to a Total 5G or 5G+ Unlimited 3-month plan.</p>
-          <a class="learn" href="#visit">Learn More</a>
-        </article>
-        <article class="slide" style="background:linear-gradient(135deg,#0f1e27,#12323c)">
-          <div class="pill">$25/line</div>
-          <h3>Unlimited 5G data</h3>
-          <p>With 4 lines on Base 5G Unlimited. Price locked 5 years, taxes &amp; fees included.</p>
-          <a class="learn" href="#visit">Learn More</a>
-        </article>
-        <article class="slide" style="background:linear-gradient(135deg,#0f1e27,#14414a)">
-          <div class="pill">50% OFF</div>
-          <h3>Save vs. Metro &amp; Cricket</h3>
-          <p>Keep the phone &amp; number you love when you switch one line.</p>
-          <a class="learn" href="#visit">Check compatibility</a>
-        </article>
-        <article class="slide" style="background:linear-gradient(135deg,#0f1e27,#165057)">
-          <div class="pill">BOGO</div>
-          <h3>Galaxy A36 5G + Tab A9+ 5G</h3>
-          <p>Activate a new line on Total 5G Unlimited 6-month tablet plan.</p>
-          <a class="learn" href="#visit">Learn More</a>
-        </article>
-        <article class="slide" style="background:linear-gradient(135deg,#0f1e27,#176665)">
-          <div class="pill">Up to 4 FREE</div>
-          <h3>moto g stylus 5G (2024)</h3>
-          <p>With Total Base 5G Unlimited plan or higher.</p>
-          <a class="learn" href="#visit">Learn More</a>
-        </article>
-        <article class="slide" style="background:linear-gradient(135deg,#0f1e27,#187472)">
-          <div class="pill">2 months FREE</div>
-          <h3>Unlimited 5G Home Internet</h3>
-          <p>When bundled with any phone plan. First month $45. Router sold separately.</p>
-          <a class="learn" href="#visit">Check availability</a>
-        </article>
+        <div class="slide"><div class="pill">FREE</div><h3>Get iPhone 13 with 5G — On Us</h3><p>Switch on a Total 5G Unlimited plan.</p><a class="learn" href="#visit">Learn More</a></div>
+        <div class="slide"><div class="pill">$25/line</div><h3>Unlimited 5G data</h3><p>4 lines on Base 5G Unlimited. Price lock 5 yrs.</p><a class="learn" href="#visit">Learn More</a></div>
+        <div class="slide"><div class="pill">50% OFF</div><h3>Save vs. Metro & Cricket</h3><p>Keep your phone & number when you switch.</p><a class="learn" href="#visit">Check compatibility</a></div>
+        <div class="slide"><div class="pill">BOGO</div><h3>Galaxy A36 5G + Tab A9+ 5G</h3><p>Bundle with a 6-month Unlimited plan.</p><a class="learn" href="#visit">Learn More</a></div>
       </div>
-
-      <div class="dots" id="dots" aria-hidden="true"></div>
     </div>
   </section>
 
   <!-- Services -->
-  <section id="services" class="wrap services">
-    <h2 class="section-title">Store Services</h2>
+  <section id="services" class="services">
+    <h2>Store Services</h2>
     <p class="section-sub">Complete wireless solutions and expert support</p>
-
-    <div class="item"><div class="ico">📲</div><div><strong>Phone Activations</strong><br><span style="color:var(--muted)">We’ll get your new phone activated and ready to use.</span></div></div>
-    <div class="item"><div class="ico">🔁</div><div><strong>Number Porting</strong><br><span style="color:var(--muted)">Keep your current phone number when you switch.</span></div></div>
-    <div class="item"><div class="ico">🛠️</div><div><strong>Phone Repairs</strong><br><span style="color:var(--muted)">Professional repairs for most models.</span></div></div>
-    <div class="item"><div class="ico">⬆️</div><div><strong>Upgrades &amp; Trade-ins</strong><br><span style="color:var(--muted)">Great upgrade deals and setup help.</span></div></div>
-    <div class="item"><div class="ico">💬</div><div><strong>Tech Support</strong><br><span style="color:var(--muted)">Setup, troubleshooting, and friendly advice.</span></div></div>
-    <div class="item"><div class="ico">♿</div><div><strong>Prepare for Your Visit</strong><br><span style="color:var(--muted)">Parking available · ADA accessible · Have account PIN ready · Update &amp; back up apps.</span></div></div>
+    <div class="item"><div class="ico">📲</div><div><strong>Activations</strong><br>We’ll set up your new phone.</div></div>
+    <div class="item"><div class="ico">🔁</div><div><strong>Number Porting</strong><br>Keep your current number.</div></div>
+    <div class="item"><div class="ico">🛠️</div><div><strong>Phone Repairs</strong><br>Professional repairs in-store.</div></div>
+    <div class="item"><div class="ico">⬆️</div><div><strong>Upgrades & Trade-ins</strong><br>Upgrade and save.</div></div>
+    <div class="item"><div class="ico">💬</div><div><strong>Tech Support</strong><br>Friendly setup & troubleshooting.</div></div>
   </section>
 
-  <!-- Visit / Contact -->
-  <section id="visit" class="wrap visit">
-    <h2 class="section-title">Visit Our Store</h2>
+  <!-- Visit -->
+  <section id="visit" class="visit">
+    <h2>Visit Our Store</h2>
     <div class="card">
       <div style="flex:1;min-width:240px">
-        <p style="margin:0 0 10px"><strong>Store Address</strong><br/>1234 Main Street, Concord, CA 94520<br/>Contra Costa County</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn outline" href="https://maps.google.com/?q=1234+Main+St+Concord+CA+94520" target="_blank" rel="noopener">Get Directions</a>
+        <p><strong>Store Address</strong><br>1234 Main Street, Concord, CA 94520<br>Contra Costa County</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn outline" href="https://maps.google.com/?q=1234+Main+St+Concord+CA+94520" target="_blank">Get Directions</a>
           <a class="btn primary" href="tel:+19252898278">Call (925) 289-8278</a>
           <a class="btn outline" href="mailto:info@contracostawireless.com">Email Us</a>
-          <a class="btn primary" href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Book Appointment</a>
         </div>
       </div>
       <img class="mascot" src="/images/Coco.png" alt="Coco mascot" />
@@ -227,81 +140,19 @@
   <!-- Footer -->
   <footer>
     <div class="foot">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-        <img src="/images/Logo.png" alt="Contra Costa Wireless" style="height:28px;width:auto" />
+      <div class="socials">
+        <a href="https://facebook.com/yourpage" target="_blank">Fb</a>
+        <a href="https://instagram.com/yourpage" target="_blank">Ig</a>
+        <a href="https://tiktok.com/@yourpage" target="_blank">Tt</a>
+        <a href="https://youtube.com/@yourpage" target="_blank">Yt</a>
       </div>
-
-      <div class="socials" aria-label="social links">
-        <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3.6L18 10h-4V7a1 1 0 011-1h3z" stroke="#d6ece7" stroke-width="1.5" /></svg>
-        </a>
-        <a href="https://instagram.com/yourpage" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#d6ece7" stroke-width="1.5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="#d6ece7" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#d6ece7"/></svg>
-        </a>
-        <a href="https://tiktok.com/@yourpage" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 7v10a4 4 0 104-4V3c1.2 1.6 3 2.7 5 3v3c-1.8-.2-3.5-.9-5-2" stroke="#d6ece7" stroke-width="1.5"/></svg>
-        </a>
-        <a href="https://youtube.com/@yourpage" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.5 6.4a2.8 2.8 0 00-1.9-2C18.9 4 12 4 12 4S5.1 4 3.4 4.4a2.8 2.8 0 00-2 2A30 30 0 001 12a30 30 0 00.6 5.6 2.8 2.8 0 002 2C5.1 20 12 20 12 20s6.9 0 8.6-.4a2.8 2.8 0 002-2A30 30 0 0023 12a30 30 0 00-.5-5.6z" stroke="#d6ece7" stroke-width="1.5"/><path d="M10 9l6 3-6 3V9z" fill="#d6ece7"/></svg>
-        </a>
-      </div>
-
-      <div class="tiny" style="margin-top:8px">
-        <strong>Address:</strong> 1234 Main Street, Concord, CA 94520, Contra Costa County •
-        <strong>Phone:</strong> (925) 289-8278 •
-        <strong>Email:</strong> info@contracostawireless.com
-      </div>
-      <div class="tiny">
-        <strong>Disclaimer:</strong> Contra Costa Wireless is an independent Authorized Dealer for Total Wireless by Verizon. Offers subject to change; see store for details.
-      </div>
+      <div class="tiny">1234 Main Street, Concord, CA 94520 • (925) 289-8278 • info@contracostawireless.com</div>
       <div class="tiny">© <span id="year"></span> Contra Costa Wireless. All rights reserved.</div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // slider logic
-    const scroller = document.getElementById('slides');
-    const prev = document.getElementById('prevBtn');
-    const next = document.getElementById('nextBtn');
-    const dotsWrap = document.getElementById('dots');
-
-    function updateArrows(){
-      prev.disabled = scroller.scrollLeft <= 0;
-      const max = scroller.scrollWidth - scroller.clientWidth - 2;
-      next.disabled = scroller.scrollLeft >= max;
-    }
-
-    const slides = Array.from(scroller.children);
-    slides.forEach(()=> {
-      const d = document.createElement('div');
-      d.className = 'dot';
-      dotsWrap.appendChild(d);
-    });
-    const dots = Array.from(dotsWrap.children);
-
-    function syncDots(){
-      const cardW = scroller.firstElementChild.getBoundingClientRect().width + 14;
-      const i = Math.round(scroller.scrollLeft / cardW);
-      dots.forEach((d,idx)=> d.classList.toggle('active', idx===i));
-    }
-
-    prev.addEventListener('click', ()=> scroller.scrollBy({left: -scroller.clientWidth, behavior:'smooth'}));
-    next.addEventListener('click', ()=> scroller.scrollBy({left:  scroller.clientWidth, behavior:'smooth'}));
-    scroller.addEventListener('scroll', ()=>{ updateArrows(); syncDots(); });
-
-    // swipe help
-    let startX=0;
-    scroller.addEventListener('pointerdown', e=>{ startX=e.clientX; });
-    scroller.addEventListener('pointerup', e=>{
-      const dx = e.clientX - startX;
-      if(Math.abs(dx)>40){
-        scroller.scrollBy({left: dx>0 ? -scroller.clientWidth : scroller.clientWidth, behavior:'smooth'});
-      }
-    });
-
-    updateArrows(); syncDots();
   </script>
 </body>
 </html>
