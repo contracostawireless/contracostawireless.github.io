@@ -6,74 +6,97 @@
   <title>Contra Costa Wireless • Total Wireless Authorized Dealer</title>
   <meta name="description" content="Switch to Total Wireless with Contra Costa Wireless — simple, reliable prepaid on Verizon's network. Free phones when you switch, bundle savings, BYOD, home internet, repairs and accessories." />
   <meta name="theme-color" content="#0e8f83" />
-
   <style>
     :root{
       --teal:#0e8f83;
+      --teal-2:#14a195;
       --ink:#15232b;
       --muted:#6b8a99;
       --bg:#f4f7f8;
-      --dark:#0e1a21;
+      --card:#ffffff;
+      --ring:0 0 0 .2rem rgba(20,161,149,.2);
+      --radius:20px;
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
     img{max-width:100%;display:block}
-    a{text-decoration:none}
+    a{text-decoration:none;color:inherit}
+
+    .wrap{max-width:1100px;margin:auto;padding:0 16px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:20;background:#fffefee6;backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid #e7eef2}
-    .nav{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:10px 16px}
-    .nav img{height:40px}
-    .nav .links{display:flex;gap:16px;align-items:center}
-    .nav .links a{font-weight:700;color:#214452}
-    .nav .links a.btn{background:var(--teal);color:#fff;padding:10px 16px;border-radius:999px}
+    header{position:sticky;top:0;z-index:30;background:#ffffffe6;backdrop-filter:saturate(130%) blur(8px);border-bottom:1px solid #e6edf1}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:42px}
+    .navlinks{display:flex;gap:18px;align-items:center;font-weight:800}
+    .navlinks a{color:#1f3f4c}
+    .navlinks .btn{background:var(--teal);color:#fff;padding:10px 16px;border-radius:999px}
+    .navlinks .btn:hover{background:var(--teal-2)}
 
     /* Hero */
-    .hero{margin:16px auto;border-radius:22px;overflow:hidden;position:relative;min-height:58vh;display:grid;place-items:center;text-align:center;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.25)),url("/images/hero.jpg") center/cover}
-    .hero h1{font-size:clamp(28px,6vw,42px);margin:0 0 8px}
-    .hero p{margin:0 0 14px;color:#eaf7f5}
+    .hero{margin:16px 0;border-radius:24px;overflow:hidden;position:relative;min-height:58vh;display:grid;place-items:center;text-align:center;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.25)),url("/images/hero.jpg") center/cover}
+    .hero h1{font-size:clamp(28px,6vw,44px);margin:0 0 8px}
+    .hero p{margin:0 0 14px;color:#eaf6f4}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
     .cta{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:800}
     .cta.primary{background:#fff;color:var(--teal)}
     .cta.outline{background:transparent;border:2px solid #fff;color:#fff}
 
     /* Sections */
-    section{padding:24px 16px;max-width:1100px;margin:auto}
-    h2{margin:0 0 8px;font-size:26px}
-    p.section-sub{margin:0 0 14px;color:var(--muted)}
+    section{padding:28px 0}
+    .section-sub{color:var(--muted);margin-top:6px}
 
-    /* Visit Store */
-    .visit .card{background:#fff;border:1px solid #e6ebef;border-radius:18px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-    .visit .info{flex:1}
-    .visit img{width:120px;max-width:35%}
+    /* Deals grid */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid #e6ebef;border-radius:var(--radius);padding:18px;display:grid;gap:10px}
+    .tag{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.03em;border-radius:999px;padding:4px 8px;background:#e6f8f5;color:#0b8f7e;border:1px solid #c6eee9}
+    .learn{display:inline-block;margin-top:8px;font-weight:800;border:2px solid #d7e5ea;border-radius:999px;padding:10px 14px}
+    .learn:hover{border-color:#bfd3da}
+
+    /* Services list */
+    .services-list{display:grid;grid-template-columns:1fr;gap:12px}
+    .service{background:#fff;border:1px solid #e6ebef;border-radius:16px;padding:14px;display:flex;gap:12px;align-items:center}
+    .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#f2f7f9;border:1px solid #e1eaef;font-size:20px}
+
+    /* Visit */
+    .visit .storecard{background:#fff;border:1px solid #e6ebef;border-radius:18px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
     .btn{appearance:none;border:none;border-radius:999px;padding:12px 16px;font-weight:800;cursor:pointer;text-align:center;display:inline-block}
     .btn.primary{background:var(--teal);color:#fff}
+    .btn.primary:focus{outline:none;box-shadow:var(--ring)}
     .btn.outline{background:#fff;border:2px solid var(--teal);color:var(--teal)}
+    .visit .mascot{width:130px;max-width:35%}
 
     /* Footer */
-    footer{background:#0c161c;color:#d6ece7;padding:24px 16px;margin-top:20px}
-    .foot{max-width:1100px;margin:auto;display:grid;gap:14px}
+    footer{background:#0c161c;color:#d6ece7;margin-top:10px}
+    .foot{display:grid;gap:14px;padding:24px 16px}
+    .foot .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
     .foot img{height:28px}
     .tiny{font-size:12px;color:#a9c7c0}
+    .socials{display:flex;gap:14px;margin-top:6px}
+    .socials a{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#122a31;border:1px solid #1b3f49}
+    .socials svg{width:22px;height:22px;stroke:#d1ece7}
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div class="nav">
-      <img src="/images/Logo.png" alt="Contra Costa Wireless logo" />
-      <div class="links">
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="/images/Logo.png" alt="Contra Costa Wireless logo" />
+      </div>
+      <nav class="navlinks">
         <a href="#deals">Deals</a>
         <a href="#services">Services</a>
         <a href="#visit">Contact</a>
-        <a class="btn" href="https://form.jotform.com/252469328813060" target="_blank">Book Appointment</a>
-      </div>
+        <a class="btn" href="https://form.jotform.com/252469328813060" target="_blank" rel="noopener">Book Appointment</a>
+      </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="wrap hero" id="top" aria-label="Hero">
     <div>
       <h1>Welcome to Contra Costa Wireless</h1>
       <p>Your local Total Wireless Authorized Dealer</p>
@@ -84,42 +107,117 @@
     </div>
   </section>
 
-  <!-- Promotions -->
-  <section id="deals">
+  <!-- Deals -->
+  <section id="deals" class="wrap">
     <h2>Amazing Deals & Promotions</h2>
     <p class="section-sub">Switch today and start saving with these offers</p>
-    <!-- Slider could go here -->
+    <div class="cards">
+      <article class="card">
+        <div class="tag">FREE</div>
+        <h3 style="margin:0">Free Phones</h3>
+        <p style="margin:0;color:var(--muted)">Get a brand new smartphone when you switch to Total Wireless.</p>
+        <a class="learn" href="#visit">Learn More</a>
+      </article>
+      <article class="card">
+        <div class="tag">$40/mo</div>
+        <h3 style="margin:0">$40 Unlimited Plan</h3>
+        <p style="margin:0;color:var(--muted)">Taxes &amp; fees included. Great value with no contracts.</p>
+        <a class="learn" href="#visit">Learn More</a>
+      </article>
+      <article class="card">
+        <div class="tag">5G</div>
+        <h3 style="margin:0">Verizon Network</h3>
+        <p style="margin:0;color:var(--muted)">Reliable nationwide coverage powered by Verizon’s network.</p>
+        <a class="learn" href="#visit">Learn More</a>
+      </article>
+      <article class="card" style="background:linear-gradient(135deg,#7a3cff,#9a64ff);color:#fff;border-color:#6f56ff">
+        <div class="tag" style="background:#ffffff22;border:1px solid #ffffff66;color:#fff">Bundle</div>
+        <h3 style="margin:0;color:#fff">Bundle Savings</h3>
+        <p style="margin:0;color:#f3eaff">Save when you bundle wireless + home internet.</p>
+        <a class="learn" href="#visit" style="border-color:#ffffff6b;color:#fff">Learn More</a>
+      </article>
+      <article class="card" style="background:linear-gradient(135deg,#0aa77d,#18c49d);color:#fff;border-color:#09a97d">
+        <div class="tag" style="background:#ffffff22;border:1px solid #ffffff66;color:#fff">50% OFF</div>
+        <h3 style="margin:0;color:#fff">Bring Your Phone</h3>
+        <p style="margin:0;color:#eafff9">Keep your current phone and save on your monthly bill.</p>
+        <a class="learn" href="#visit" style="border-color:#ffffff6b;color:#fff">Learn More</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="wrap">
+    <h2>Store Services</h2>
+    <p class="section-sub">Complete wireless solutions and expert support</p>
+    <div class="services-list">
+      <div class="service"><div class="ico">🧾</div><div><strong>Bill Pay</strong><br><span style="color:var(--muted)">Quick and easy bill payment for all major carriers</span></div></div>
+      <div class="service"><div class="ico">📲</div><div><strong>Phone Activations</strong><br><span style="color:var(--muted)">We’ll get your new phone activated and ready to use</span></div></div>
+      <div class="service"><div class="ico">🔁</div><div><strong>Number Porting</strong><br><span style="color:var(--muted)">Keep your current phone number when you switch</span></div></div>
+      <div class="service"><div class="ico">🛠️</div><div><strong>Phone Repairs</strong><br><span style="color:var(--muted)">Professional repair services for most phone models</span></div></div>
+      <div class="service"><div class="ico">⬆️</div><div><strong>Phone Upgrades</strong><br><span style="color:var(--muted)">Trade-in help and great upgrade deals</span></div></div>
+      <div class="service"><div class="ico">💬</div><div><strong>Tech Support</strong><br><span style="color:var(--muted)">Setup, troubleshooting, and friendly advice</span></div></div>
+    </div>
   </section>
 
   <!-- Visit -->
-  <section id="visit" class="visit">
+  <section id="visit" class="wrap visit">
     <h2>Visit Our Store</h2>
-    <div class="card">
-      <div class="info">
-        <p><strong>Store Address</strong><br>1234 Main Street, Concord, CA 94520<br>Contra Costa County</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px">
-          <a class="btn outline" href="https://maps.google.com/?q=1234+Main+St+Concord+CA+94520" target="_blank">Get Directions</a>
+    <div class="storecard">
+      <div style="flex:1;min-width:240px">
+        <p style="margin:0 0 10px"><strong>Store Address</strong><br>
+          1234 Main Street, Concord, CA 94520<br>Contra Costa County
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn outline" href="https://maps.google.com/?q=1234+Main+St+Concord+CA+94520" target="_blank" rel="noopener">Get Directions</a>
           <a class="btn primary" href="tel:+19252898278">Call (925) 289-8278</a>
+          <a class="btn outline" href="mailto:info@contracostawireless.com">Email Us</a>
         </div>
       </div>
-      <img src="/images/Coco.png" alt="Coco mascot" />
+      <img class="mascot" src="/images/Coco.png" alt="Coco mascot" />
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="foot">
-      <img src="/images/Logo.png" alt="Contra Costa Wireless" />
+    <div class="wrap foot">
+      <div class="row">
+        <img src="/images/Logo.png" alt="Contra Costa Wireless" />
+        <div class="socials" aria-label="social links">
+          <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d1ece7"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3.64L18 10h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://instagram.com/yourpage" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d1ece7"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://tiktok.com/@yourpage" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d1ece7"><path d="M9 7v10a4 4 0 104-4V3c1.2 1.6 3 2.7 5 3v3c-1.8-.2-3.5-.9-5-2"/></svg>
+          </a>
+          <a href="https://youtube.com/@yourpage" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d1ece7"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 00-1.94 2A29.94 29.94 0 001 12a29.94 29.94 0 00.46 5.58 2.78 2.78 0 001.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 001.94-2A29.94 29.94 0 0023 12a29.94 29.94 0 00-.46-5.58z"/><path d="M9.75 15.02l5.5-3.02-5.5-3.02v6.04z"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="tiny">
-        <strong>Address:</strong> 1234 Main Street, Concord, CA 94520, Contra Costa County<br>
-        <strong>Disclaimer:</strong> Contra Costa Wireless is an independent Authorized Dealer for Total Wireless by Verizon. Offers subject to change; see store for details.<br>
-        © <span id="year"></span> Contra Costa Wireless. All rights reserved.
+        <strong>Address:</strong> 1234 Main Street, Concord, CA 94520, Contra Costa County •
+        <strong>Phone:</strong> (925) 289-8278 •
+        <strong>Email:</strong> info@contracostawireless.com
+        <br><strong>Disclaimer:</strong> Contra Costa Wireless is an independent Authorized Dealer for Total Wireless by Verizon. Offers subject to change; see store for details.
+        <br>© <span id="year"></span> Contra Costa Wireless. All rights reserved.
       </div>
     </div>
   </footer>
 
   <script>
+    // year
     document.getElementById('year').textContent = new Date().getFullYear();
+    // smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
   </script>
 </body>
 </html>
